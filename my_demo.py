@@ -68,8 +68,6 @@ if __name__ == "__main__":
         cls_num_per_lane = 18
     elif cfg.dataset == 'Tusimple':
         cls_num_per_lane = 56
-    elif cfg.dataset == 'auto':
-        cls_num_per_lane = 18
     else:
         raise NotImplementedError
 
@@ -92,15 +90,14 @@ if __name__ == "__main__":
         transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)),
     ])
     if cfg.dataset == 'CULane':
-        splits = ['test0_normal.txt', 'test1_crowd.txt', 'test2_hlight.txt', 'test3_shadow.txt', 'test4_noline.txt', 'test5_arrow.txt', 'test6_curve.txt', 'test7_cross.txt', 'test8_night.txt']
-        datasets = [LaneTestDataset(cfg.data_root,os.path.join(cfg.data_root, 'list/test_split/'+split),img_transform = img_transforms, crop_size = cfg.train_height) for split in splits]
-        img_w, img_h = 1640, 590
-    elif cfg.dataset == 'Tusimple':
-        splits = ['test.txt']
+        # splits = ['test0_normal.txt', 'test1_crowd.txt', 'test2_hlight.txt', 'test3_shadow.txt', 'test4_noline.txt', 'test5_arrow.txt', 'test6_curve.txt', 'test7_cross.txt', 'test8_night.txt']
+        # datasets = [LaneTestDataset(cfg.data_root,os.path.join(cfg.data_root, 'list/test_split/'+split),img_transform = img_transforms, crop_size = cfg.train_height) for split in splits]
+        # img_w, img_h = 1640, 590
+        splits = ['labels.txt']
         datasets = [LaneTestDataset(cfg.data_root,os.path.join(cfg.data_root, split),img_transform = img_transforms, crop_size = cfg.train_height) for split in splits]
         img_w, img_h = 1280, 720
-    elif cfg.dataset == 'auto':
-        splits = ['labels.txt']
+    elif cfg.dataset == 'Tusimple':
+        splits = ['test.txt']
         datasets = [LaneTestDataset(cfg.data_root,os.path.join(cfg.data_root, split),img_transform = img_transforms, crop_size = cfg.train_height) for split in splits]
         img_w, img_h = 1280, 720
     else:
