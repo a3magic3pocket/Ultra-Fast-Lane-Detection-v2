@@ -96,7 +96,7 @@ if __name__ == "__main__":
         # img_w, img_h = 1640, 590
         splits = ['auto_data/labels.txt']
         datasets = [LaneTestDataset(cfg.data_root,os.path.join(cfg.data_root, split),img_transform = img_transforms, crop_size = cfg.train_height) for split in splits]
-        img_w, img_h = 1942, 1042
+        img_w, img_h = 1280, 720
     elif cfg.dataset == 'Tusimple':
         splits = ['test.txt']
         datasets = [LaneTestDataset(cfg.data_root,os.path.join(cfg.data_root, split),img_transform = img_transforms, crop_size = cfg.train_height) for split in splits]
