@@ -112,6 +112,7 @@ if __name__ == "__main__":
 
             vis = cv2.imread(os.path.join(cfg.data_root,names[0]))
             coords = pred2coords(pred, cfg.row_anchor, cfg.col_anchor, original_image_width = img_w, original_image_height = img_h)
+            print(f"{coords=}")
             for lane in coords:
                 for coord in lane:
                     cv2.circle(vis,coord,5,(0,255,0),-1)
