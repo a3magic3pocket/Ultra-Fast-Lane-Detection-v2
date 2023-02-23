@@ -119,4 +119,4 @@ if __name__ == "__main__":
                 for coord in lane:
                     cv2.circle(vis,coord,5,(0,255,0),-1)
                     
-            cv2.imwrite('auto_data/result_' + i + '.png', vis)
+            cv2.imwrite(f'auto_data/result_{i}.png', vis)
