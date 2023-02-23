@@ -5,6 +5,7 @@ from utils.common import merge_config, get_model
 import tqdm
 import torchvision.transforms as transforms
 from data.dataset import LaneTestDataset
+import matplotlib.pyplot as plt
 
 def pred2coords(pred, row_anchor, col_anchor, local_width = 1, original_image_width = 1640, original_image_height = 590):
     batch_size, num_grid_row, num_cls_row, num_lane_row = pred['loc_row'].shape
@@ -117,3 +118,6 @@ if __name__ == "__main__":
             for lane in coords:
                 for coord in lane:
                     cv2.circle(vis,coord,5,(0,255,0),-1)
+                    
+            plt.imshow(vis)
+            plt.show()        
