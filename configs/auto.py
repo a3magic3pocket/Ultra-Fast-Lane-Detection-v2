@@ -1,4 +1,4 @@
-dataset= 'auto'
+dataset= 'CULane'
 data_root= '' # Need to be modified before running
 epoch= 50
 batch_size= 32
